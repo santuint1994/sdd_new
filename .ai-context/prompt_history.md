@@ -63,3 +63,27 @@ Append-only chronological audit log of user prompts, change requests, and AI exe
 - Logged the ingestion, conflict, and resolution in `.ai-context/brd-change-log.md`.
 - Updated `.ai-context/status.md` with BRD status (Pending Review) and next step (Gate 0 reviewer sign-off required).
 - **Not done (per protocol):** No specs or business module folders generated — blocked until Gate 0 (BRD PR review) approval, and Gate 1 (architecture review) after that.
+
+---
+
+## 2026-09-17 — Gate 0 PR Review (BRD-Baseline)
+
+**User:** Ran `/int-pr-gate-workflow`.
+
+**Pre-Check Authorization:**
+- Logged-in Git user: Supratim (`supratim.jetty@intglobal.com`)
+- Assigned Reviewer: Supratim Jetty (`supratim.jetty@intglobal.com`)
+- Verification: Matched assigned reviewer roster for Gate 0, Gate 1, and Gate 2. Authorized.
+
+**Action:**
+- Selected **Option 1 — Review Pending PR Items**.
+- Item reviewed: `BRD-Baseline` (`.ai-context/BRD.md`).
+- Review Decision: **Rejected**.
+- Reviewer Feedback: `"There is no mention how to create role base access for employee , please review and re submit"`.
+
+**Synchronization Performed:**
+- Created dedicated PR Review file: `.ai-context/pr_reviews/GATE0-BRD-Baseline-20260917-003748.md`.
+- Updated `.ai-context/BRD.md` status to `Rejected (Gate 0 Rejection — 2026-09-17)` with review comments and action required.
+- Updated `.ai-context/status.md` BRD section status to `Rejected (Gate 0)` with reviewer feedback and next steps.
+- Appended turn log entry to `.ai-context/prompt_history.md`.
+

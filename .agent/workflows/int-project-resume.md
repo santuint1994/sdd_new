@@ -100,6 +100,32 @@ Execute Selected Action & Update Repository State
 
 ---
 
+## 5. Manual Coding Handling Protocol (Before vs. After Spec/Plan/Task)
+
+When a developer performs **manual coding** (direct code changes in `src/` or `tests/`) outside or alongside AI execution, `/int-project-resume` detects the changes via `git status` and applies the following protocol:
+
+### Scenario A: Manual Coding BEFORE Spec / Plan / Task Generation
+*(Manual code exists, but BRD or Feature Spec is missing / not yet Gate 1 Approved)*
+- **Rule**: Code is generated output. Implementation code MUST NOT silently redefine requirements or bypass Gate 0 / Gate 1.
+- **Actions Offered to Developer**:
+  1. **Retroactive Spec Ingestion**: Reverse-engineer draft `.spec.md` from manual code, submit for **Gate 1 PR Review**, and generate Plan/Tasks/Test Cases before taking further action.
+  2. **Preserve Code & Align SDD**: Freeze manual code, draft Spec + Plan + Tasks + Test Cases, verify tests GREEN, and request **Gate 2 PR Review**.
+  3. **Stash / Discard**: Stash manual changes and follow standard BRD → Gate 0 → Spec → Gate 1 → Plan → Tasks → TDD workflow.
+
+### Scenario B: Manual Coding AFTER Spec / Plan / Task Generation
+*(Manual code exists under an active, Gate 1 Approved Spec)*
+- **Rule**: Code must align with approved Spec intent and pass all TDD test suites (GREEN).
+- **Classification**:
+  - Prompt contains **"Change Request"** (or **"CR"**): Triggers Spec revision & **Gate 1 re-approval**.
+  - No "Change Request" keyword: Processed as **Development Fix / Refactoring** under active spec.
+- **Actions Offered to Developer**:
+  1. **Run TDD Verification**: Execute test suite (`npm test` / `pytest`).
+     - **If RED (Failing)**: Display failure log and prompt developer to complete GREEN implementation.
+     - **If GREEN (Passing)**: Update task list (`- [x]`) and prompt to request **Gate 2 Code PR Review**.
+  2. **Spec Alignment Check**: Compare code diff against `.spec.md`. If requirements changed, prompt to initiate formal **Change Request (CR)**.
+
+---
+
 ## Non-Negotiable Safety Rules
 1. **Precedence Hierarchy**: `Gate 0 Approval > Spec Approval (Gate 1) > Gate 2 Approval > Release Generation`.
 2. **No Blind Execution**: Never assume the previous command represents current state.

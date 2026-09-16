@@ -12,9 +12,11 @@ demo-sdd (Full Stack — Modular Monolith / Microservice Ready)
 
 ## BRD
 - **Source:** `docs/Employee_Leave_Management_SOW_NextJS_NodeJS.pdf` (SOW v1.1)
-- **Status:** Pending Review (Gate 0) — `.ai-context/BRD.md` baseline created 2026-09-17. Spec generation and business module creation are **blocked** until Gate 0 approval.
+- **Status:** Rejected (Gate 0 Rejection — 2026-09-17) — `.ai-context/BRD.md` baseline rejected by Supratim Jetty. Spec generation and development remain **STRICTLY BLOCKED**.
+- **Reviewer Feedback:** "There is no mention how to create role base access for employee , please review and re submit" (see `.ai-context/pr_reviews/GATE0-BRD-Baseline-20260917-003748.md`).
 - **Approved deviation:** PostgreSQL kept instead of SOW-specified MySQL — see `.ai-context/decisions/ADR-001.md`.
-- **Next step:** Assigned Gate 0 reviewer (PM/TL) must review `.ai-context/BRD.md` and record approval before any spec is generated.
+- **Next step:** Author must update `.ai-context/BRD.md` to specify employee role-based access creation details and re-submit for Gate 0 review.
+
 
 ## Specs
 

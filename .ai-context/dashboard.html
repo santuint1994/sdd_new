@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gate Review Dashboard — demo-sdd</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --panel: #171a23;
+    --border: #2a2e3a;
+    --text: #e6e8ee;
+    --muted: #8890a3;
+    --accent: #4f7cff;
+    --pass: #38c172;
+    --warn: #f6c343;
+    --fail: #e3564a;
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; margin: 0; padding: 24px; line-height: 1.5; }
+  .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+  h1 { font-size: 22px; margin: 0; font-weight: 600; }
+  .last-updated { font-size: 13px; color: var(--muted); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+  .card h2 { font-size: 13px; margin: 0 0 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+  .badge.pass { background: rgba(56,193,114,0.15); color: var(--pass); }
+  .badge.warn { background: rgba(246,195,67,0.15); color: var(--warn); }
+  .badge.fail { background: rgba(227,86,74,0.15); color: var(--fail); }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); font-size: 13px; }
+  th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; }
+  .comment-box { background: rgba(227,86,74,0.08); border-left: 3px solid var(--fail); padding: 12px; border-radius: 0 6px 6px 0; margin-top: 8px; font-size: 13px; }
+  .comment-meta { color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+  .status-banner { background: rgba(227,86,74,0.12); border: 1px solid rgba(227,86,74,0.3); color: var(--fail); padding: 12px 16px; border-radius: 8px; margin-bottom: 24px; font-weight: 500; display: flex; align-items: center; gap: 10px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div>
+      <h1>Gate Review Dashboard — demo-sdd</h1>
+      <div class="last-updated">Single Source of Truth for Gate Approvals & Compliance</div>
+    </div>
+    <div class="last-updated">Last Updated: 2026-09-17 00:37:48</div>
+  </div>
+
+  <div class="status-banner">
+    <span>🛑</span>
+    <div>
+      <strong>Gate 0 BRD Review Status: REJECTED</strong> — Development and Spec Generation are strictly blocked. Author action required.
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>BRD & Gate 0 Governance</h2>
+      <table>
+        <tbody>
+          <tr><th>Source SOW</th><td>Employee_Leave_Management_SOW_NextJS_NodeJS.pdf</td></tr>
+          <tr><th>BRD Document</th><td><a href="BRD.md">.ai-context/BRD.md</a></td></tr>
+          <tr><th>Gate 0 Status</th><td><span class="badge fail">Rejected</span></td></tr>
+          <tr><th>Assigned Reviewer</th><td>Supratim Jetty (supratim.jetty@intglobal.com)</td></tr>
+          <tr><th>Review Date</th><td>2026-09-17 00:37:48</td></tr>
+          <tr><th>Review Record</th><td><a href="pr_reviews/GATE0-BRD-Baseline-20260917-003748.md">GATE0-BRD-Baseline-20260917-003748.md</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Gate 0 Reviewer Feedback</h2>
+      <div class="comment-meta">Supratim Jetty — 2026-09-17 00:37:48:</div>
+      <div class="comment-box">
+        "There is no mention how to create role base access for employee , please review and re submit"
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 12px;">
+        <strong>Required Action:</strong> Author must update <code>.ai-context/BRD.md</code> to specify employee role creation & role-based access control details before re-submitting.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Active Specs & PR Gate Roster</h2>
+      <table>
+        <thead><tr><th>Spec ID</th><th>Gate 1</th><th>Gate 2</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td colspan="4" style="color: var(--muted); text-align: center;">No specs generated yet (Blocked by Gate 0)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Compliance & Tech Baseline</h2>
+      <table>
+        <thead><tr><th>Check</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Database Engine</td><td><span class="badge pass">PostgreSQL (ADR-001)</span></td></tr>
+          <tr><td>Backend Stack</td><td><span class="badge pass">Node.js + Express (TS)</span></td></tr>
+          <tr><td>Frontend Stack</td><td><span class="badge pass">Next.js (App Router)</span></td></tr>
+          <tr><td>Gate 0 Approval</td><td><span class="badge fail">Failed (Rejected)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,7 +1,15 @@
 # Business Requirements Document (BRD)
 
 ## Status
-Pending Review
+Rejected (Gate 0 Rejection — 2026-09-17)
+
+### Gate 0 Review Feedback (2026-09-17)
+- **Reviewer:** Supratim Jetty (`supratim.jetty@intglobal.com`)
+- **Status:** Rejected
+- **Reviewer Comments:** "There is no mention how to create role base access for employee , please review and re submit"
+- **Review Record:** `.ai-context/pr_reviews/GATE0-BRD-Baseline-20260917-003748.md`
+- **Action Required:** Author must revise BRD.md to specify employee role creation & role-based access control details before re-submitting for Gate 0 review.
+
 
 ## Source Document
 - **File:** `docs/Employee_Leave_Management_SOW_NextJS_NodeJS.pdf`
